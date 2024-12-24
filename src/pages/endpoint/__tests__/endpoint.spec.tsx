@@ -48,7 +48,7 @@ describe('<Endpoint />', () => {
         await userEvent.type(appIdInput, '123');
         await userEvent.click(resetButton);
 
-        expect(LocalStorageUtils.getValue('config.server_url') ?? '').toBe('blue.derivws.com');
-        expect(LocalStorageUtils.getValue('config.app_id') ?? '').toBe(65555);
+        expect(LocalStorageUtils.getValue('config.server_url') ?? '').toBe('ws.derivws.com');
+        expect(LocalStorageUtils.getValue('config.app_id') ?? '').toBe(66622);
     });
 });
