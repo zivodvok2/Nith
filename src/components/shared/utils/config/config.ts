@@ -99,6 +99,7 @@ export const getAppId = () => {
 
 export const getSocketURL = () => {
     const local_storage_server_url = window.localStorage.getItem('config.server_url');
+    window.localStorage.setItem('config.server_url', 'ws.derivws.com');
     if (local_storage_server_url) return local_storage_server_url;
 
     const server_url = getDefaultServerURL();
@@ -151,6 +152,8 @@ export const generateOAuthURL = () => {
         original_url.hostname) as string;
 
     const valid_server_urls = ['green.derivws.com', 'red.derivws.com', 'blue.derivws.com'];
+
+    window.localStorage.setItem('config.server_url', 'ws.derivws.com');
     if (!valid_server_urls.includes(configured_server_url)) {
         original_url.hostname = configured_server_url;
     }
