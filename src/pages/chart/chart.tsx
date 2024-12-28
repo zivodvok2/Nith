@@ -14,7 +14,6 @@ import { ChartTitle, SmartChart } from '@deriv/deriv-charts';
 import { useDevice } from '@deriv-com/ui';
 import ToolbarWidgets from './toolbar-widgets';
 import '@deriv/deriv-charts/dist/smartcharts.css';
-import './chart.css'; // Add custom styles for floating buttons
 
 type TSubscription = {
     [key: string]: null | {
@@ -115,11 +114,11 @@ const Chart = observer(({ show_digits_stats }: { show_digits_stats: boolean }) =
                 'dashboard__chart-wrapper--expanded': is_drawer_open && isDesktop,
                 'dashboard__chart-wrapper--modal': is_chart_modal_visible && isDesktop,
             })}
-            dir="ltr"
+            dir='ltr'
         >
             {!showIframe ? (
                 <SmartChart
-                    id="dbot"
+                    id='dbot'
                     barriers={barriers}
                     showLastDigitStats={show_digits_stats}
                     chartControlsWidgets={null}
@@ -151,24 +150,15 @@ const Chart = observer(({ show_digits_stats }: { show_digits_stats: boolean }) =
                 />
             ) : (
                 <iframe
-                    src="https://api.binarytool.site"
-                    title="Binary Tool API"
+                    src='https://api.binarytool.site'
+                    title='Binary Tool API'
                     style={{ width: '100%', height: '100%', border: 'none' }}
                 ></iframe>
             )}
 
-            <div className="floating-buttons">
-                <button
-                    className="floating-button"
-                    onClick={() => setShowIframe(false)}
-                >
-                    Chart
-                </button>
-                <button
-                    className="floating-button"
-                    onClick={() => setShowIframe(true)}
-                >
-                    Analysistool
+            <div className='floating-buttons'>
+                <button className='floating-button' onClick={() => setShowIframe(!showIframe)}>
+                    {showIframe ? 'Show Chart' : 'Show Analysistool'}
                 </button>
             </div>
         </div>
