@@ -30,7 +30,7 @@ const MenuContent = observer(() => {
                             key={index}
                         >
                             {item.map(({ LeftComponent, RightComponent, as, href, label, onClick, target }) => {
-                                const is_deriv_logo = label === 'Deriv.com';
+                                const is_deriv_logo = label === 'D-zenith.com';
                                 if (as === 'a') {
                                     return (
                                         <MenuItem
@@ -38,7 +38,7 @@ const MenuContent = observer(() => {
                                             className={clsx('mobile-menu__content__items__item', {
                                                 'mobile-menu__content__items__icons': !is_deriv_logo,
                                             })}
-                                            disableHover
+                                            disableHoverd
                                             href={href}
                                             key={label}
                                             leftComponent={

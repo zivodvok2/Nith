@@ -26,11 +26,16 @@ import RunPanel from '../../components/run-panel';
 import ChartModal from '../chart/chart-modal';
 import Dashboard from '../dashboard';
 import RunStrategy from '../dashboard/run-strategy';
+import My_bots from '../D_bots';
 
 const Chart = lazy(() => import('../chart'));
 const Tutorial = lazy(() => import('../tutorials'));
+const D_bots = lazy(() => import('../D_bots'));
+const CopyTrade = lazy(() => import('../../pages/Copy-trading/src/index'));
+//const ZenithTools = lazy(() => import('../BinaryTools')); // Ensure the path is correct
 
 const AppWrapper = observer(() => {
+    `1            æ`;
     const { connectionStatus } = useApiBase();
     const { dashboard, load_modal, run_panel, quick_strategy, summary_card } = useStore();
     const {
@@ -58,7 +63,7 @@ const AppWrapper = observer(() => {
     const { clear } = summary_card;
     const { DASHBOARD, BOT_BUILDER } = DBOT_TABS;
     const init_render = React.useRef(true);
-    const hash = ['dashboard', 'bot_builder', 'chart', 'tutorial'];
+    const hash = ['dashboard', 'bot_builder', 'chart', 'tutorial', 'My_bots', 'copy_Trader'];
     const { isDesktop } = useDevice();
     const location = useLocation();
     const navigate = useNavigate();
@@ -233,6 +238,36 @@ const AppWrapper = observer(() => {
                                     fallback={<ChunkLoader message={localize('Please wait, loading tutorials...')} />}
                                 >
                                     <Tutorial handleTabChange={handleTabChange} />
+                                </Suspense>
+                            </div>
+                        </div>
+                        <div
+                            label={
+                                <>
+                                    <LegacyGuide1pxIcon height='16px' width='16px' fill='var(--text-general)' />
+                                    <Localize i18n_default_text='D-Zenith Bots' />
+                                </>
+                            }
+                            id='id-my-bots'
+                        >
+                            <div className='tutorials-wrapper'>
+                                <Suspense fallback={<ChunkLoader message={localize('Hold as we load Your Bots...')} />}>
+                                    <D_bots handleTabChange={handleTabChange} />
+                                </Suspense>
+                            </div>
+                        </div>
+                        <div
+                            label={
+                                <>
+                                    <LegacyGuide1pxIcon height='16px' width='16px' fill='var(--text-general)' />
+                                    <Localize i18n_default_text='Copy Trading' />
+                                </>
+                            }
+                            id='id-copy-trade'
+                        >
+                            <div className='tutorials-wrapper'>
+                                <Suspense fallback={<ChunkLoader message={localize('............')} />}>
+                                    <CopyTrade handleTabChange={handleTabChange} />
                                 </Suspense>
                             </div>
                         </div>

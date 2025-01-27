@@ -15,6 +15,7 @@ import Local from './local';
 import LocalFooter from './local-footer';
 import Recent from './recent';
 import RecentFooter from './recent-footer';
+import MyBots from '../../pages/D_bots/My_bots';
 
 const LoadModal: React.FC = observer(() => {
     const { load_modal, dashboard } = useStore();

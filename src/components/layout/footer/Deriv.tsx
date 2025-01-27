@@ -12,7 +12,7 @@ const Deriv = () => {
             className='app-footer__icon'
             href={standalone_routes.deriv_com}
             target='_blank'
-            tooltipContent={localize('Go to deriv.com')}
+            tooltipContent={localize('Go to d-zenith.com')}
         >
             <LegacyDerivIcon iconSize='xs' />
         </Tooltip>

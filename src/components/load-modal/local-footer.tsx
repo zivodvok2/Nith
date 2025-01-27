@@ -5,7 +5,7 @@ import { useStore } from '@/hooks/useStore';
 import { localize } from '@deriv-com/translations';
 import { useDevice } from '@deriv-com/ui';
 import Button from '../shared_ui/button';
-
+import { DBOT_TABS } from '@/constants/bot-contents';
 const LocalFooter = observer(() => {
     const { load_modal, dashboard } = useStore();
     const {
@@ -31,9 +31,10 @@ const LocalFooter = observer(() => {
                     loadStrategyOnBotBuilder();
                     saveStrategyToLocalStorage();
                     setLoadedLocalFile(null);
-                    toggleLoadModal();
-                    setPreviewOnPopup(false);
+                    toggleLoadModal(false);
+                   setPreviewOnPopup(false);
                     setOpenSettings(NOTIFICATION_TYPE.BOT_IMPORT);
+                    dashboard.setActiveTab(DBOT_TABS.BOT_BUILDER);
                 }}
                 is_loading={is_open_button_loading}
                 has_effect

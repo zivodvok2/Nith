@@ -17,13 +17,13 @@ import ResponsibleTrading from './ResponsibleTrading';
 import ServerTime from './ServerTime';
 import WhatsApp from './WhatsApp';
 import './footer.scss';
+import React from 'react';
 
 const Footer = () => {
     const { currentLang = 'EN', localize, switchLanguage } = useTranslations();
     const { hideModal, isModalOpenFor, showModal } = useModalManager();
 
     const openLanguageSettingModal = () => showModal('DesktopLanguagesModal');
-
     const { data } = useRemoteConfig(true);
     const { cs_chat_whatsapp } = data;
 
@@ -34,17 +34,13 @@ const Footer = () => {
             <HelpCentre />
             <div className='app-footer__vertical-line' />
             <ChangeTheme />
-            <AccountLimits />
-            <ResponsibleTrading />
-            <Deriv />
-            <Livechat />
-            {cs_chat_whatsapp && <WhatsApp />}
             <div className='app-footer__vertical-line' />
             <ServerTime />
             <div className='app-footer__vertical-line' />
             <NetworkStatus />
             <Endpoint />
 
+            {/* Open Language Modal */}
             {isModalOpenFor('DesktopLanguagesModal') && (
                 <DesktopLanguagesModal
                     headerTitle={localize('Select Language')}

@@ -5,28 +5,24 @@ import { platformsConfig } from '../header-config';
 import './platform-switcher.scss';
 
 const PlatformSwitcher = () => {
+    const shouldRenderPlatforms = false; // Toggle visibility
+
+    if (!shouldRenderPlatforms) {
+        return null; // Hides the entire component
+    }
     const { localize } = useTranslations();
 
     return (
         <UIPlatformSwitcher
             bottomLinkLabel={localize('Looking for CFDs? Go to Trader’s Hub')}
             buttonProps={{
-                icon: platformsConfig[1].buttonIcon,
+                icon: null, //platformsConfig[1].buttonIcon,
             }}
             bottomLinkProps={{
-                href: standalone_routes.traders_hub,
+                href: '', //standalone_routes.traders_hub,
             }}
         >
-            {platformsConfig.map(({ active, description, href, icon }) => (
-                <PlatformSwitcherItem
-                    active={active}
-                    className='platform-switcher'
-                    description={localize('{{description}}', { description })}
-                    href={href}
-                    icon={icon}
-                    key={description}
-                />
-            ))}
+            {platformsConfig.map(() => null)}
         </UIPlatformSwitcher>
     );
 };

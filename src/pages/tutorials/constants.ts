@@ -3,7 +3,7 @@ import { localize } from '@deriv-com/translations';
 import { TFaqContent, TGuideContent, TQuickStrategyContent, TUserGuideContent } from './tutorials.types';
 
 export const USER_GUIDE = 'user guide';
-export const VIDEOS = 'videos on deriv bot';
+export const VIDEOS = 'videos on D-Zenith bot';
 export const QUICK_STRATEGY_GUIDES = 'quick strategy guides';
 
 export const user_guide_content = (): TUserGuideContent[] => [
@@ -11,7 +11,7 @@ export const user_guide_content = (): TUserGuideContent[] => [
         id: 1,
         type: 'Tour',
         subtype: 'OnBoard',
-        content: localize('Get started on Deriv Bot'),
+        content: localize('Get started on D-Zenith Bot'),
         src: getImageLocation('dbot-onboard-tour.png'),
         search_id: `${USER_GUIDE}-0`,
     },
@@ -29,7 +29,7 @@ export const guide_content = (): TGuideContent[] => [
     {
         id: 1,
         type: 'DBotVideo',
-        content: localize('An introduction to Deriv Bot'),
+        content: localize('An introduction to D-Zenith Bot'),
         url: 'https://www.youtube.com/embed/lthEgaIY1uw',
         src: getImageLocation('intro_to_deriv_bot.png'),
         search_id: `${VIDEOS}-0`,
@@ -37,7 +37,7 @@ export const guide_content = (): TGuideContent[] => [
     {
         id: 2,
         type: 'DBotVideo',
-        content: localize('How to build a basic trading bot with Deriv Bot'),
+        content: localize('How to build a basic trading bot with D-Zenith Bot'),
         url: 'https://www.youtube.com/embed/mnpi2g7YakU',
         src: getImageLocation('build_a_bot.png'),
         search_id: `${VIDEOS}-1`,
@@ -45,7 +45,7 @@ export const guide_content = (): TGuideContent[] => [
     {
         id: 3,
         type: 'DBotVideo',
-        content: localize('How to use Martingale strategy on Deriv Bot'),
+        content: localize('How to use Martingale strategy on D-Zenith Bot'),
         url: 'https://www.youtube.com/embed/FSslvF7P00I',
         src: getImageLocation('how_to_use_martingale.jpg'),
         search_id: `${VIDEOS}-2`,
@@ -53,7 +53,7 @@ export const guide_content = (): TGuideContent[] => [
     {
         id: 4,
         type: 'DBotVideo',
-        content: localize('Introducing Accumulator Options on Deriv Bot: Available for automated trading'),
+        content: localize('Introducing Accumulator Options on D-Zenith Bot: Available for automated trading'),
         url: 'https://www.youtube.com/embed/uMBBmdNaadU',
         src: getImageLocation('introducing_accumulators_on_deriv_bot.png'),
         search_id: `${VIDEOS}-3`,
@@ -62,12 +62,12 @@ export const guide_content = (): TGuideContent[] => [
 
 export const faq_content = (): TFaqContent[] => [
     {
-        title: localize('What is Deriv Bot?'),
+        title: localize('What is D-Zenith Bot?'),
         description: [
             {
                 type: 'text',
                 content: localize(
-                    "Deriv Bot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own automated trading bot using drag-and-drop 'blocks'."
+                    "D-Zenith Bot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own automated trading bot using drag-and-drop 'blocks'."
                 ),
             },
         ],
@@ -148,7 +148,7 @@ export const faq_content = (): TFaqContent[] => [
         search_id: 'faq-3',
     },
     {
-        title: localize('Do you offer pre-built trading bots on Deriv Bot?'),
+        title: localize('Do you offer pre-built trading bots on D-Zenith Bot?'),
         description: [
             {
                 type: 'text',
@@ -165,7 +165,7 @@ export const faq_content = (): TFaqContent[] => [
             {
                 type: 'text',
                 content: localize(
-                    "A quick strategy is a ready-made strategy that you can use in Deriv Bot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind."
+                    "A quick strategy is a ready-made strategy that you can use in D-Zenith Bot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind."
                 ),
             },
             {
@@ -212,7 +212,7 @@ export const faq_content = (): TFaqContent[] => [
         search_id: 'faq-6',
     },
     {
-        title: localize('How do I import my own trading bot into Deriv Bot?'),
+        title: localize('How do I import my own trading bot into D-Zenith Bot?'),
         description: [
             {
                 type: 'text',
@@ -294,12 +294,12 @@ export const faq_content = (): TFaqContent[] => [
         search_id: 'faq-9',
     },
     {
-        title: localize('How do I control my losses with Deriv Bot?'),
+        title: localize('How do I control my losses with D-Zenith Bot?'),
         description: [
             {
                 type: 'text',
                 content: localize(
-                    'There are several ways to control your losses with Deriv Bot. Here’s a simple example of how you can implement loss control in your strategy:'
+                    'There are several ways to control your losses with D-Zenith Bot. Here’s a simple example of how you can implement loss control in your strategy:'
                 ),
             },
             {
@@ -373,7 +373,7 @@ export const faq_content = (): TFaqContent[] => [
         search_id: 'faq-10',
     },
     {
-        title: localize('Can I run Deriv Bot on multiple tabs in my web browser?'),
+        title: localize('Can I run D-Zenith Bot on multiple tabs in my web browser?'),
         description: [
             {
                 type: 'text',
@@ -385,11 +385,11 @@ export const faq_content = (): TFaqContent[] => [
         search_id: 'faq-11',
     },
     {
-        title: localize('Can I trade cryptocurrencies on Deriv Bot?'),
+        title: localize('Can I trade cryptocurrencies on D-Zenith Bot?'),
         description: [
             {
                 type: 'text',
-                content: localize("No, we don't offer cryptocurrencies on Deriv Bot."),
+                content: localize("No, we don't offer cryptocurrencies on D-Zenith Bot."),
             },
         ],
         search_id: 'faq-12',
@@ -400,7 +400,7 @@ export const faq_content = (): TFaqContent[] => [
             {
                 type: 'text',
                 content: localize(
-                    "No, we don't. However, you'll find quick strategies on Deriv Bot that'll help you build your own trading bot for free."
+                    "No, we don't. However, you'll find quick strategies on D-Zenith Bot that'll help you build your own trading bot for free."
                 ),
             },
         ],
@@ -419,11 +419,11 @@ export const faq_content = (): TFaqContent[] => [
         search_id: 'faq-14',
     },
     {
-        title: localize('If I close my web browser, will Deriv Bot continue to run?'),
+        title: localize('If I close my web browser, will D-Zenith Bot continue to run?'),
         description: [
             {
                 type: 'text',
-                content: localize('No, Deriv Bot will stop running when your web browser is closed.'),
+                content: localize('No, D-Zenith Bot will stop running when your web browser is closed.'),
             },
         ],
         search_id: 'faq-15',
@@ -459,7 +459,7 @@ export const quick_strategy_content = (): TQuickStrategyContent[] => [
         qs_name: 'MARTINGALE',
         type: localize('About Martingale'),
         content: [
-            localize('Exploring the Martingale strategy in Deriv Bot'),
+            localize('Exploring the Martingale strategy in D-Zenith Bot'),
             localize('An example of Martingale strategy'),
         ],
         search_id: `${QUICK_STRATEGY_GUIDES}-0`,
@@ -468,7 +468,7 @@ export const quick_strategy_content = (): TQuickStrategyContent[] => [
         qs_name: 'D_ALEMBERT',
         type: localize("About D'Alembert"),
         content: [
-            localize('Exploring the D’Alembert strategy in Deriv Bot'),
+            localize('Exploring the D’Alembert strategy in D-Zenith Bot'),
             localize('An example of D’Alembert strategy'),
         ],
         search_id: `${QUICK_STRATEGY_GUIDES}-1`,
@@ -477,7 +477,7 @@ export const quick_strategy_content = (): TQuickStrategyContent[] => [
         qs_name: 'OSCARS_GRIND',
         type: localize("About Oscar's Grind"),
         content: [
-            localize('Exploring the Oscar’s Grind strategy in Deriv Bot'),
+            localize('Exploring the Oscar’s Grind strategy in D-Zenith Bot'),
             localize('An example of Oscar’s Grind strategy'),
         ],
         search_id: `${QUICK_STRATEGY_GUIDES}-2`,
@@ -486,7 +486,7 @@ export const quick_strategy_content = (): TQuickStrategyContent[] => [
         qs_name: 'REVERSE_MARTINGALE',
         type: localize('About Reverse Martingale'),
         content: [
-            localize('Exploring the Reverse Martingale strategy in Deriv Bot'),
+            localize('Exploring the Reverse Martingale strategy in D-Zenith Bot'),
             localize('An example of Reverse Martingale strategy'),
         ],
         search_id: `${QUICK_STRATEGY_GUIDES}-3`,
@@ -495,7 +495,7 @@ export const quick_strategy_content = (): TQuickStrategyContent[] => [
         qs_name: 'REVERSE_D_ALEMBERT',
         type: localize('About Reverse D’Alembert'),
         content: [
-            localize('Exploring the Reverse D’Alembert strategy in Deriv Bot'),
+            localize('Exploring the Reverse D’Alembert strategy in D-Zenith Bot'),
             localize('An example of Reverse D’Alembert strategy'),
         ],
         search_id: `${QUICK_STRATEGY_GUIDES}-4`,
@@ -503,7 +503,7 @@ export const quick_strategy_content = (): TQuickStrategyContent[] => [
     {
         qs_name: 'STRATEGY_1_3_2_6',
         type: localize('About 1-3-2-6'),
-        content: [localize('Exploring the 1-3-2-6 strategy in Deriv Bot'), localize('An example of 1-3-2-6 strategy')],
+        content: [localize('Exploring the 1-3-2-6 strategy in D-Zenith Bot'), localize('An example of 1-3-2-6 strategy')],
         search_id: `${QUICK_STRATEGY_GUIDES}-5`,
     },
 ];

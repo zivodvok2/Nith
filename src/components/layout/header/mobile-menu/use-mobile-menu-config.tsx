@@ -19,6 +19,7 @@ import {
     LegacyWhatsappIcon,
 } from '@deriv/quill-icons/Legacy';
 import { BrandDerivLogoCoralIcon } from '@deriv/quill-icons/Logo';
+import { DerivLogo} from '@deriv-com/ui';
 import { useTranslations } from '@deriv-com/translations';
 import { ToggleSwitch } from '@deriv-com/ui';
 import { URLConstants } from '@deriv-com/utils';
@@ -41,45 +42,21 @@ type TMenuConfig = {
 const useMobileMenuConfig = (client?: RootStore['client']) => {
     const { localize } = useTranslations();
     const { is_dark_mode_on, toggleTheme } = useThemeSwitcher();
-
     const { oAuthLogout } = useOauth2({ handleLogout: async () => client?.logout(), client });
-
     const { data } = useRemoteConfig(true);
     const { cs_chat_whatsapp } = data;
 
-    const { is_livechat_available } = useIsLiveChatWidgetAvailable();
+    // Force live chat and WhatsApp to be unavailable and hidden
+    const is_livechat_available = false; // Override to make live chat inactive
+    const is_whatsapp_available = false; // Override to make WhatsApp inactive
 
     const menuConfig: TMenuConfig[] = [
         [
             {
                 as: 'a',
-                href: standalone_routes.deriv_com,
-                label: localize('Deriv.com'),
+                href: standalone_routes.dzenith,
+                label: localize('D-zenith'),
                 LeftComponent: BrandDerivLogoCoralIcon,
-            },
-            {
-                as: 'a',
-                href: standalone_routes.deriv_app,
-                label: localize("Trader's Hub"),
-                LeftComponent: LegacyHomeOldIcon,
-            },
-            {
-                as: 'a',
-                href: standalone_routes.trade,
-                label: localize('Trade'),
-                LeftComponent: LegacyChartsIcon,
-            },
-            {
-                as: 'a',
-                href: standalone_routes.personal_details,
-                label: localize('Account Settings'),
-                LeftComponent: LegacyProfileSmIcon,
-            },
-            {
-                as: 'a',
-                href: standalone_routes.cashier_deposit,
-                label: localize('Cashier'),
-                LeftComponent: LegacyCashierIcon,
             },
             {
                 as: 'button',
@@ -90,24 +67,8 @@ const useMobileMenuConfig = (client?: RootStore['client']) => {
         ],
         (
             [
-                {
-                    as: 'a',
-                    href: standalone_routes.help_center,
-                    label: localize('Help center'),
-                    LeftComponent: LegacyHelpCentreIcon,
-                },
-                {
-                    as: 'a',
-                    href: standalone_routes.account_limits,
-                    label: localize('Account limits'),
-                    LeftComponent: LegacyAccountLimitsIcon,
-                },
-                {
-                    as: 'a',
-                    href: standalone_routes.responsible,
-                    label: localize('Responsible trading'),
-                    LeftComponent: LegacyResponsibleTradingIcon,
-                },
+                // Remove WhatsApp from the menu configuration by commenting it out or deleting the code block
+                /*
                 cs_chat_whatsapp
                     ? {
                           as: 'a',
@@ -117,6 +78,9 @@ const useMobileMenuConfig = (client?: RootStore['client']) => {
                           target: '_blank',
                       }
                     : null,
+                */
+                // Remove live chat from the menu configuration by commenting it out or deleting the code block
+                /*
                 is_livechat_available
                     ? {
                           as: 'button',
@@ -129,8 +93,9 @@ const useMobileMenuConfig = (client?: RootStore['client']) => {
                           },
                       }
                     : null,
+                */
             ] as TMenuConfig
-        ).filter(Boolean),
+        ).filter(Boolean), // This removes null items from the menu array
         client?.is_logged_in
             ? [
                   {

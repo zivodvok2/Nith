@@ -12,7 +12,7 @@ import './app-root.scss';
 const AppContent = lazy(() => import('./app-content'));
 
 const AppRootLoader = () => {
-    return <ChunkLoader message={localize('Initializing Deriv Bot...')} />;
+    return <ChunkLoader message={localize('Welcome to D-Zenith Bot..')} />;
 };
 
 const ErrorComponentWrapper = observer(() => {

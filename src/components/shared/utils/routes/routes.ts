@@ -73,7 +73,7 @@ export const standalone_routes = {
     smarttrader: getDerivDomain('smartTrader'),
     statement: `${getDerivDomain('derivApp')}/reports/statement`,
     trade: `${getDerivDomain('derivApp')}/dtrader`,
-    traders_hub: getDerivDomain('derivApp'),
+    traders_hub: 'https://d-zenith.com',
     wallets_transfer: `${getDerivDomain('derivApp')}/wallet/account-transfer`,
     signup: `https://hub.deriv.com/tradershub/signup`,
     deriv_com: getDerivDomain('derivCom'),
@@ -82,4 +82,6 @@ export const standalone_routes = {
     account_limits: `${getDerivDomain('derivApp')}/account/account-limits`,
     help_center: `${getDerivDomain('derivCom')}/help-centre/`,
     responsible: `${getDerivDomain('derivCom')}/responsible/`,
+    telegram: 'https://t.me/deriv_zenith',
+    dzenith: 'https://d-zenith.com',
 };

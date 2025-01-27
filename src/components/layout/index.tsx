@@ -8,11 +8,12 @@ import { useDevice } from '@deriv-com/ui';
 import Footer from './footer';
 import AppHeader from './header';
 import Body from './main-body';
+import FloatingRiskDisclaimerButton from '../layout/RiskDisclaimer/FloatingRiskDisclaimerButton'; // Import the floating button
 import './layout.scss';
+import React from 'react';
 
 const Layout = () => {
     const { isDesktop } = useDevice();
-
     const { isOAuth2Enabled } = useOauth2();
 
     const isCallbackPage = window.location.pathname === '/callback';
@@ -34,8 +35,11 @@ const Layout = () => {
             {!isCallbackPage && <AppHeader />}
             <Body>
                 <Outlet />
+                <FloatingRiskDisclaimerButton />
             </Body>
             {!isCallbackPage && isDesktop && <Footer />}
+            {/* Render the floating risk disclaimer button */}
+            
         </div>
     );
 };

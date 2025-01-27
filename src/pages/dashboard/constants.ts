@@ -8,7 +8,7 @@ export type TSidebarItem = {
 
 export const SIDEBAR_INTRO = (): TSidebarItem[] => [
     {
-        label: localize('Welcome to Deriv Bot!'),
+        label: localize('Welcome to D_zenith Bot!'),
         content: [
             {
                 data: localize(
@@ -21,14 +21,14 @@ export const SIDEBAR_INTRO = (): TSidebarItem[] => [
     },
     {
         label: localize('Guide'),
-        content: [{ data: localize('Deriv Bot - your automated trading partner') }],
-        link: true,
+        content: [{ data: localize('D-zenith Bot - your automated trading partner') }],
+        link: false,
     },
     {
         label: localize('FAQs'),
         content: [
             {
-                data: localize('What is Deriv Bot?'),
+                data: localize('What is D-zenith Bot?'),
                 faq_id: 'faq-0',
             },
             {
@@ -40,6 +40,6 @@ export const SIDEBAR_INTRO = (): TSidebarItem[] => [
                 faq_id: 'faq-2',
             },
         ],
-        link: true,
+        link: false,
     },
 ];

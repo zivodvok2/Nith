@@ -275,6 +275,13 @@
     button {
         font-weight: 400;
         margin-inline-end: 1.6rem;
+        background-color: #367588; /* Green background */
+        color: white !important; /* White text */
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #218838 !important; /* Darker green on hover */
     }
 }
 
@@ -285,4 +292,7 @@
 
 .deriv-accordion--underline {
     border-bottom: none;
+}
+.login-text {
+    color: white;
 }

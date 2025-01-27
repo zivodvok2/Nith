@@ -119,7 +119,7 @@ const BotBuilder = observer(() => {
                 </div>
             </div>
             {active_tab === 1 && <BotBuilderTourHandler is_mobile={!isDesktop} />}
-            {/* removed this outside from toolbar becuase it needs to loaded seperately without dependency */}
+            {/* removed this outside from toolbar because it needs to be loaded separately without dependency */}
             <LoadModal />
             <SaveModal />
             {is_open && <QuickStrategy1 />}

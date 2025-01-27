@@ -1,0 +1,41 @@
+.binarytools-list__item__label {
+    width: 100%;
+}
+
+.binarytools-list__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: auto;
+}
+
+.binarytools-list__item {
+    display: flex;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(-55deg, #000046, #119dc4);
+    margin: 1rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    height: auto;
+    font-weight: 600;
+    align-items: center;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+
+.binarytools-list__item:hover {
+    background: #036;
+    color: #000;
+}
+
+.binarytools_massive_logo {
+    display: none;
+}
+
+@media screen and (width <= 720px) {
+    .binarytools-list__wrapper {
+        grid-template-columns: none;
+        height: calc(100vh - 25rem);
+    }
+}

@@ -1,10 +1,15 @@
-.app-header {
-    &__logo {
-        padding-inline-start: 1.2rem;
-        padding-inline-end: 2rem;
-        border-inline-end: 1px solid var(--general-section-1);
-        height: 32px;
-        display: flex;
-        align-items: center;
-    }
+.app-header__logo-container {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+}
+
+.app-header__logo {
+    margin-right: 8px; /* Add space between the logo and the text */
+}
+
+.app-header__logo-text {
+    font-weight: bold; /* Makes the text bold */
+    font-size: 16px; /* Adjust font size as needed */
+    color: #333; /* Adjust color as needed */
+    line-height: 1; /* Prevent extra vertical spacing */
 }

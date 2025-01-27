@@ -48,7 +48,7 @@ export default class AppStore {
         text: localize(
             'Unfortunately, this trading platform is not available for EU Deriv account. Please switch to a non-EU account to continue trading.'
         ),
-        title: localize('Deriv Bot is unavailable for this account'),
+        title: localize('D-Zenith is unavailable for this account'),
         link: localize('Switch to another account'),
     });
 
@@ -56,8 +56,8 @@ export default class AppStore {
         return {
             text: ' ',
             title: is_logged_in
-                ? localize(`Deriv Bot is not available for ${country || 'EU'} clients`)
-                : localize(`Deriv Bot is unavailable in ${country || 'the EU'}`),
+                ? localize(`D-zenith is not available for ${country || 'EU'} clients`)
+                : localize(`D-zenith is unavailable in ${country || 'the EU'}`),
             link: is_logged_in ? localize("Back to Trader's Hub") : localize('Refresh'),
             route: standalone_routes.traders_hub,
         };

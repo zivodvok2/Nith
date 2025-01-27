@@ -170,7 +170,7 @@ const AppContent = observer(() => {
     if (common?.error) return null;
 
     return is_loading ? (
-        <ChunkLoader message={localize('Initializing your account...')} />
+        <ChunkLoader message={localize('Welcome to The World of Trading...')} />
     ) : (
         <>
             <ThemeProvider theme={is_dark_mode_on ? 'dark' : 'light'}>
@@ -178,7 +178,7 @@ const AppContent = observer(() => {
                 <div className='bot-dashboard bot' data-testid='dt_bot_dashboard'>
                     <Audio />
                     <Main />
-                    <BotBuilder />
+                    {<BotBuilder />}
                     <BotStopped />
                     <TransactionDetailsModal />
                     <ToastContainer limit={3} draggable={false} />

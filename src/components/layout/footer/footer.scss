@@ -105,3 +105,162 @@
         opacity: 0.2;
     }
 }
+/* Style for the Risk Disclaimer Button */
+.risk-disclaimer-button {
+    background-color: darkorange;  // Button color
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;          /* Adjust text size for medium look */
+  border-radius: 10px;      /* Round the edges */
+  border: none;      
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    max-width: 200px;  // Limit the max width
+    width: auto;  // Let it fit content
+
+    position:fixed; // Or use 'fixed' if the button should stay visible when scrolling
+    left: 40; // Align to the leftmost part of the screen
+    
+    &:hover {
+        background-color: olive;
+        width: auto;  // Ensure it doesn't expand to cover the whole page
+    }
+}
+
+/* Modal Style */
+.risk-disclaimer-body {
+    max-width: 500px;  // Control modal's width
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    @media (max-width: 768px) {
+        width: 90%;  // Let it be more flexible on mobile
+    }
+    
+    & {
+        background-color: white;
+        font-weight: bold;
+    }
+}
+
+.risk-header{
+    max-width: 600px;  // Limit modal size for better appearance
+    margin: 5% auto;  // Center it on the screen with a margin
+      // Optional, to make corners rounded
+    background-color: white;  // Modal background color
+      // Subtle shadow to lift the modal
+      font-weight: bolder;
+      font-size: x-large;
+
+    /* For smaller screens, ensure it doesn't take up the whole width */
+    
+}
+
+/* Close Button inside Modal */
+.modal-footer button {
+    background-color: red;  // Close button color
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+        background-color: darkred;
+    }
+}
+/* footer.scss */
+.risk-disclaimer-button {
+    background-color: darkgoldenrod;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background-color: darkolivegreen;
+        transform: scale(1.1); /* Slightly expand on hover */
+    }
+}
+
+/* modal.scss */
+.risk-disclaimer-modal .modal-content {
+    width: 600px; /* Fixed size for the modal */
+    max-width: 90%; /* Ensure it doesn’t overflow on smaller screens */
+    padding: 20px;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.risk-disclaimer-modal .modal-header {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.risk-disclaimer-modal .modal-body p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.risk-disclaimer-modal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.risk-disclaimer-modal .close-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darkred;
+    }
+}
+.close-button{
+    background-color: red !important;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darkgoldenrod !important;
+        transform: scale(1.1);
+    }
+}
+.never-show-button {
+    background-color: green;
+    color: black;
+    border: none;
+    padding: 10px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background-color: darkgoldenrod;
+        transform: scale(1.1);
+    }
+}
+.mod{
+    background-color: yellow;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+   
+}
