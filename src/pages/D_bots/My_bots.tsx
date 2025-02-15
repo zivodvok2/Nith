@@ -3,10 +3,11 @@ import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 import { LegacyClose1pxIcon } from '@deriv/quill-icons/Legacy';
 import { Localize } from '@deriv-com/translations';
-import { useStore } from '../../hooks/useStore';
-import WorkspaceControl from '../../components/load-modal/workspace-control';
-import LocalFooter from '../../components/load-modal/local-footer';
 import { useDevice } from '@deriv-com/ui';
+import LocalFooter from '../../components/load-modal/local-footer';
+import WorkspaceControl from '../../components/load-modal/workspace-control';
+import { useStore } from '../../hooks/useStore';
+import './my-bots.scss'; // Import the SCSS file
 
 const MyBots = observer(() => {
     const { dashboard, load_modal, blockly_store } = useStore();
@@ -14,18 +15,29 @@ const MyBots = observer(() => {
     const { handleFileChange, loaded_local_file, setLoadedLocalFile, imported_strategy_type } = load_modal;
 
     const [is_file_supported, setIsFileSupported] = React.useState(true);
-   const { isDesktop } = useDevice();
+    const { isDesktop } = useDevice();
     const { is_loading } = blockly_store;
 
     const xml_files = [
-        { name: 'Dalembert', file_path: '/My_xml/dalembert.xml' },
-        { name: 'accumulators_martingale', file_path: '/My_xml/accumulators_martingale.xml' },
+        {
+            name: 'Dalembert',
+            file_path: '/My_xml/dalembert.xml',
+            description: 'A strategy based on the Dalembert betting system.',
+            title: 'Dalembert',
+        },
+        {
+            name: 'accumulators_martingale',
+            file_path: '/My_xml/accumulators_martingale.xml',
+            description: 'A strategy that combines accumulators and Martingale.',
+            title: 'Accumulators Martingale',
+        },
     ];
 
-    const loadFile = async (file_path) => {
+    const loadFile = async (file_path: any) => {
         try {
             const response = await fetch(file_path);
-            const file_content = await response.text();
+            if (!response.ok) throw new Error(`Failed to fetch the file: ${response.statusText}`);
+            const file_content = (await response.text()) as string;
             const file = new Blob([file_content], { type: 'text/xml' });
             const file_object = new File([file], file_path.split('/').pop(), { type: 'text/xml' });
 
@@ -86,18 +98,17 @@ const MyBots = observer(() => {
                 <div className='load-strategy__title'>
                     <Localize i18n_default_text='Select a strategy file to load' />
                 </div>
-                <ul className='load-strategy__file-links'>
-                    {xml_files.map((file) => (
-                        <li key={file.name}>
-                            <button
-                                className='load-strategy__file-link'
-                                onClick={() => loadFile(file.file_path)}
-                            >
-                                {file.name}
+                <div className='file-cards'>
+                    {xml_files.map(file => (
+                        <div key={file.name} className='file-card'>
+                            <h3 className='file-title'>{file.title}</h3>
+                            <p className='file-description'>{file.description}</p>
+                            <button className='file-button' onClick={() => loadFile(file.file_path)}>
+                                Load
                             </button>
-                        </li>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
         </div>
     );

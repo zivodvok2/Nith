@@ -14,6 +14,7 @@ import { CONNECTION_STATUS } from '@/external/bot-skeleton/services/api/observab
 import { isDbotRTL } from '@/external/bot-skeleton/utils/workspace';
 import { useApiBase } from '@/hooks/useApiBase';
 import { useStore } from '@/hooks/useStore';
+import { DerivLightSettingsInProgressIcon } from '@deriv/quill-icons';
 import {
     LabelPairedChartLineCaptionRegularIcon,
     LabelPairedObjectsColumnCaptionRegularIcon,
@@ -26,7 +27,6 @@ import RunPanel from '../../components/run-panel';
 import ChartModal from '../chart/chart-modal';
 import Dashboard from '../dashboard';
 import RunStrategy from '../dashboard/run-strategy';
-import My_bots from '../D_bots';
 
 const Chart = lazy(() => import('../chart'));
 const Tutorial = lazy(() => import('../tutorials'));
@@ -244,7 +244,11 @@ const AppWrapper = observer(() => {
                         <div
                             label={
                                 <>
-                                    <LegacyGuide1pxIcon height='16px' width='16px' fill='var(--text-general)' />
+                                    <DerivLightSettingsInProgressIcon
+                                        height='16px'
+                                        width='16px'
+                                        fill='var(--text-general)'
+                                    />
                                     <Localize i18n_default_text='D-Zenith Bots' />
                                 </>
                             }

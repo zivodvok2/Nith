@@ -15,7 +15,6 @@ import Local from './local';
 import LocalFooter from './local-footer';
 import Recent from './recent';
 import RecentFooter from './recent-footer';
-import MyBots from '../../pages/D_bots/My_bots';
 
 const LoadModal: React.FC = observer(() => {
     const { load_modal, dashboard } = useStore();
@@ -36,7 +35,7 @@ const LoadModal: React.FC = observer(() => {
     const handleTabItemClick = (active_index: number) => {
         setActiveTabIndex(active_index);
         rudderStackSendSwitchLoadStrategyTabEvent({
-            load_strategy_tab: LOAD_MODAL_TABS[active_index + (!isDesktop ? 1 : 0)],
+            quick_strategy_tab: LOAD_MODAL_TABS[active_index + (!isDesktop ? 1 : 0)],
         });
     };
 

@@ -51,16 +51,15 @@ const AppHeader = observer(() => {
                         </Tooltip>
                     )}
                     <AccountSwitcher activeAccount={activeAccount} />
-{isDesktop && has_wallet && (
-    <Button
-        className='manage-funds-button'
-        has_effect
-        text={localize('Manage funds')}
-        onClick={() => window.location.assign(standalone_routes.wallets_transfer)}
-        primary
-    />
-)}
-
+                    {isDesktop && has_wallet && (
+                        <Button
+                            className='manage-funds-button'
+                            has_effect
+                            text={localize('Manage funds')}
+                            onClick={() => window.location.assign(standalone_routes.wallets_transfer)}
+                            primary
+                        />
+                    )}
                 </>
             );
         } else {
@@ -78,9 +77,9 @@ const AppHeader = observer(() => {
                             }
                         }}
                     >
-                        <div className="login-text">
-    <Localize i18n_default_text='Log in' />
-</div>
+                        <div className='login-text'>
+                            <Localize i18n_default_text='Log in' />
+                        </div>
                     </Button>
                     <Button
                         primary
