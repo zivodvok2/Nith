@@ -1,79 +1,146 @@
-/* MyBots.scss */
-
 .load-strategy__file-list {
     padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column; /* Keep vertical layout */
+    gap: 1rem; /* Space between elements */
+    overflow-y: auto; /* Scroll if necessary */
+}
 
-    .file-cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-    }
-
-    .file-card {
-        background-color: #fff; // Deriv card background color
-        border: 1px solid #ccc5c5; // Light gray border color
-        border-radius: 8px;
-        padding: 16px;
-        box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-        transition: transform 0.3s ease;
-        margin-top: 1rem;
-        flex: 1 1 calc(33.333% - 2rem);
-
-        &:hover {
-            transform: translateY(-5px);
-        }
-    }
-
-    .file-title {
-        font-size: 22px;
-        font-weight: semi-bold;
-        color: #333; // Deriv text color
-        margin-bottom: 8px;
-    }
-
-    .file-description {
-        font-size: 14px;
-        color: #666; // Deriv text color
-        margin-bottom: 16px;
-    }
-
-    .file-button {
-        background-color: #ff444f; // Deriv primary red color
-        color: #fff; // White color
-        border: none;
-        padding: 8px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: #d7373f; // Darker red for hover
-        }
-    }
-
-    .load-strategy__title {
-        font-size: 17px;
-        font-weight: semi-bold;
-        margin-bottom: 20px;
-        color: #333; // Deriv text color
+/* File Cards - Vertical on Mobile, 3 Columns on Desktop */
+.file-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 1rem; /* Space between cards */
+    justify-content: start;
+    width: 100%;
+    @media (max-width: 768px) { /* Mobile screens */
+        grid-template-columns: repeat(1, 1fr); /* Stack in one column */
     }
 }
 
-/* Media query for small devices */
-@media (width <= 768px) {
-    .file-cards {
-        padding: 2rem;
-        flex-direction: column; // Flex column direction on small devices
-        gap: 1rem; // Adjust gap for small devices
+.file-card {
+    background: linear-gradient(to right, #26c6da, #2c2e46);
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #0056b3;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 350px;
+    max-width: 100%;
+    margin: 0 auto;
+
+    @media (max-width: 768px) { /* Mobile screens */
+        grid-template-columns: repeat(1, 1fr); /* Stack in one column */
+        //width: 70%;
+        min-width: 80%;
+        //max-width:50%;
+    }
+}
+
+
+.file-card:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    background: linear-gradient(to right, #1eb5c4, #242636); /* Slightly lighter gradient on hover */
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* File Titles */
+.file-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
+}
+
+/* Category Tabs - Spread Evenly Across Full Width */
+.category-tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px; /* Increased spacing */
+    padding: 0 1rem; /* Add padding to prevent touching screen edges */
+}
+
+/* Category Buttons - Adjusted for Longer Width */
+.category-tab {
+    flex: 1; /* Ensures equal space distribution */
+    text-align: center;
+    background-color: #f2f2f2; /* Grey background */
+    color: black; /* Black text */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 0; /* Vertical padding */
+    border-radius: 10px;
+    border: 2px solid #ddd; /* Light grey border */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 0; /* Allow flex to shrink tabs if necessary */
+
+    &:hover {
+        background-color: #e0e0e0; /* Slightly darker grey on hover */
     }
 
-    .file-card {
-        flex: 1 1 100%; // Full width on small devices
-        margin: 1rem 0; // Add margin on top and bottom
+    &.active {
+        background-color: #007bff; /* Blue for active tab */
+        color: white; /* White text for active tab */
+        border: 2px solid #007bff; /* Blue border for active tab */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for active tab */
     }
+}
+
+/* Ensure preview takes full available space */
+.load-strategy__preview-workspace {
+    flex-grow: 1; /* Allows it to expand */
+    overflow-y: auto;
+    padding-bottom: 80px; /* Space for fixed footer */
+    min-height: 70vh; /* Prevents it from shrinking */
+    width: 100vh; /* Ensures it fills available space */
+    max-width: 120vh; /* Ensures it doesn’t shrink too much on large screens */
+    margin: 0 auto; /* Centers it on the page */
+
+    @media (max-width: 768px) {
+        min-height: 60vh;
+    }
+
+    @media (min-width: 1024px) {
+        min-height: 80vh;
+        max-width: 1400px; /* Slightly wider for large screens */
+    }
+}
+
+/* Fixed footer without shrinking content */
+.load-strategy__local-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+
+    @media (min-width: 768px) {
+        height: 75px;
+    }
+
+    @media (min-width: 1024px) {
+        height: 90px;
+    }
+}
+
+.load-strategy__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center; /* Centers the text */
+    font-size: 1.5rem;  /* Adjusts font size */
+    margin-bottom: 1rem; /* Adds space below the title */
 }

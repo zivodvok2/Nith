@@ -1,31 +1,54 @@
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import { useOauth2 } from '@/hooks/auth/useOauth2';
+import { useState, useEffect } from "react";
+import { SegmentedControlSingleChoice, Skeleton } from "@deriv-com/quill-ui";
+import TraderDashboard from "./components/TraderDashboard";
+import CopierDashboard from "./components/CopierDashboard";
 
-import { SnackbarProvider, Spinner, ThemeProvider } from '@deriv-com/quill-ui';
-import Dashboard from './components/Dashboard';
-import Header from './components/Header';
-import Login from './components/Login';
-import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
+const CopyTradingTab = () => {
+    const [userType, setUserType] = useState("copier");
+    const [isLoading, setIsLoading] = useState(true);
 
-function CopyTrading({ handleTabChange }) {
+    useEffect(() => {
+        // Simulate fetching settings (replace with actual hook if needed)
+        setTimeout(() => {
+            setUserType("trader"); // Example: Change based on fetched settings
+            setIsLoading(false);
+        }, 1000);
+    }, []);
+
     return (
-        <ThemeProvider theme="light" persistent>
-            <SnackbarProvider>
-                <AuthProvider> {/* Wrap AuthProvider here */}
-                    <AppContent handleTabChange={handleTabChange} />
-                </AuthProvider>
-            </SnackbarProvider>
-        </ThemeProvider>
-    );
-}
+        <div className="min-h-screen">
+            <div className="md:max-w-6xl mx-auto md:p-6">
+                {/* User Type Selection */}
+                <div className="flex justify-center mt-4 md:mt-6 mb-8">
+                    <SegmentedControlSingleChoice
+                        onChange={(index) => setUserType(index === 0 ? "copier" : "trader")}
+                        options={[{ label: "Copy" }, { label: "Trade" }]}
+                        selectedItemIndex={userType === "copier" ? 0 : 1}
+                        size="md"
+                    />
+                </div>
 
-function AppContent() {
-    return (
-        <div>
-            <Dashboard />
+                {/* Dashboard Content */}
+                {isLoading ? (
+                    <div className="space-y-4">
+                        <div className="bg-white p-6 rounded-lg shadow">
+                            <Skeleton.Square active rounded width="100%" height="100px" />
+                        </div>
+                        <div className="bg-white p-6 rounded-lg shadow">
+                            <Skeleton.Square active rounded width="100%" height="200px" />
+                        </div>
+                        <div className="bg-white p-6 rounded-lg shadow">
+                            <Skeleton.Square active rounded width="100%" height="150px" />
+                        </div>
+                    </div>
+                ) : userType === "trader" ? (
+                    <TraderDashboard />
+                ) : (
+                    <CopierDashboard />
+                )}
+            </div>
         </div>
     );
-}
+};
 
-export default CopyTrading;
+export default CopyTradingTab;

@@ -1,0 +1,97 @@
+.load-strategy__file-list {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: row; /* Change to horizontal layout */
+    height: auto; /* Remove fixed height */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    gap: 1rem; /* Adjust spacing */
+}
+
+/* Wrapping file cards in a flex container */
+.file-cards {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping */
+    gap: 1rem; /* Adjust spacing */
+    overflow-x: auto; /* Enables scrolling if necessary */
+    padding-bottom: 1rem; /* Space below for aesthetics */
+}
+
+/* Bot File Cards */
+.file-card {
+    background-color: #007bff; /* Change to blue */
+    border: 1px solid #0056b3; /* Darker blue border */
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    color: white; /* Ensure text is visible */
+    flex: 0 0 calc(20% - 1rem); /* Make cards responsive */
+    min-width: 200px; /* Prevents shrinking too much */
+    text-align: center; /* Centers text */
+}
+
+.file-card:hover {
+    transform: translateY(-5px);
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* File Titles */
+.file-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white; /* Text color */
+}
+
+/* File Descriptions */
+.file-description {
+    font-size: 14px;
+    color: #f2f2f2; /* Lighter text for readability */
+    margin-bottom: 16px;
+}
+
+/* File Buttons */
+.file-button {
+    background-color: #ff444f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.file-button:hover {
+    background-color: #d7373f;
+}
+return (
+            <div className='load-strategy__container load-strategy__container--has-footer'>
+                <div
+                    className={classNames('load-strategy__local-preview', {
+                        'load-strategy__local-preview--active': active_tab === 1 && active_tour,
+                    })}
+                >
+                    <div className='load-strategy__title'>
+                        <Localize i18n_default_text='Preview' />
+                    </div>
+                    <div className='load-strategy__preview-workspace'>
+                        <div id='load-strategy__blockly-container' style={{ height: '100%' }}>
+                            <div className='load-strategy__local-preview-close'>
+                                <LegacyClose1pxIcon
+                                    onClick={() => setLoadedLocalFile(null)}
+                                    height='20px'
+                                    width='20px'
+                                />
+                            </div>
+                            <WorkspaceControl />
+                        </div>
+                    </div>
+                </div>
+                {
+                    <div className='load-strategy__local-footer'>
+                        <LocalFooter />
+                    </div>
+                }
+            </div>
+        );

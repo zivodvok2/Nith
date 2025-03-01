@@ -1,2 +1,2 @@
-import CopyTrading from './CopyTrading';
+import CopyTradingTab from './CopyTrading';
 export default CopyTrading;

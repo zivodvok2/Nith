@@ -31,7 +31,7 @@ const LocalFooter = observer(() => {
                     loadStrategyOnBotBuilder();
                     saveStrategyToLocalStorage();
                     setLoadedLocalFile(null);
-                    toggleLoadModal(false);
+                    //toggleLoadModal(false);
                    setPreviewOnPopup(false);
                     setOpenSettings(NOTIFICATION_TYPE.BOT_IMPORT);
                     dashboard.setActiveTab(DBOT_TABS.BOT_BUILDER);
